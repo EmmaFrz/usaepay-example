@@ -1,6 +1,6 @@
 <?php
 
-include "usaepay-php/usaepay.php";
+include "usaepay.php";
 
 // Instantiate USAePay client object
 $tran=new umTransaction;

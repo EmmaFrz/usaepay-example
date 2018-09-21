@@ -14,7 +14,7 @@
 
 
 // Change this path to the location you have save usaepay.php to
-include "usaepay-php/usaepay.php";
+include "usaepay.php";
 
 // Instantiate USAePay client object
 $tran=new umTransaction;
