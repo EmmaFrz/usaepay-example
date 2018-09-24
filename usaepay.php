@@ -354,7 +354,6 @@ class umTransaction {
 	}
 
 	/**
-	 * Verify that all required data has been set
 	 *
 	 * @return string
 	 */
