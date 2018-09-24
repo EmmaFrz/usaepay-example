@@ -38,21 +38,26 @@ $tran->zip=$_POST['ZipCode'];
 $tran->description="Online Order";	
 $tran->cvv2=$_POST['CCV'];				
 
-echo "<h1>Please Wait One Moment While We process your card.<br>\n";
-flush();
-
-if($tran->Process())
-{
-	echo "<b>Card approved</b><br>";
-	echo "<b>Authcode:</b> " . $tran->authcode . "<br>";
-	echo "<b>AVS Result:</b> " . $tran->avs_result . "<br>";
-	echo "<b>Cvv2 Result:</b> " . $tran->cvv2_result . "<br>";
-	echo "<a href='index.php' class='btn btn-success'> Go back</a>";
+if (!empty($_POST)) {
+	echo "<h1>Please Wait One Moment While We process your card.<br>\n";
+	flush();
+	if($tran->Process())
+	{
+		echo "<b>Card approved</b><br>";
+		echo "<b>Authcode:</b> " . $tran->authcode . "<br>";
+		echo "<b>AVS Result:</b> " . $tran->avs_result . "<br>";
+		echo "<b>Cvv2 Result:</b> " . $tran->cvv2_result . "<br>";
+		echo "<a href='index.php' class='btn btn-success'> Go back</a>";
+	} else {
+		echo "<b>Card Declined</b> (" . $tran->result . ")<br>";
+		echo "<b>Reason:</b> " . $tran->error . "<br>";	
+		echo "<a href='index.php' class='btn btn-success'> Go back</a>";
+		//if($tran->curlerror) echo "<b>Curl Error:</b> " . $tran->curlerror . "<br>";
+	}
 } else {
-	echo "<b>Card Declined</b> (" . $tran->result . ")<br>";
-	echo "<b>Reason:</b> " . $tran->error . "<br>";	
+	echo "Empty data, try again ";
 	echo "<a href='index.php' class='btn btn-success'> Go back</a>";
-	//if($tran->curlerror) echo "<b>Curl Error:</b> " . $tran->curlerror . "<br>";
-}		
+}
+				
 
 ?>

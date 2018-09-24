@@ -11,33 +11,35 @@
     	<h1>Payment Process</h1>
     	<a href="index.php" class="btn btn-success">Pay with Credit cards</a>
 			<form action="process2.php" method="post">
-				<div class="form-group">
-				<div class="form-group">
-					<label for="NameOnCheck">Name On Check</label>
-					<input type="text" name="NameOnCheck" class="form-control" id="NameOnCheck">
-				</div>	
-					<label for="RoutingNumber">Routing Numbre</label>
-					<input type="number" name="RoutingNumber" class="form-control" id="RoutingNumber">
-				</div>
-				<div class="form-group">
-					<label for="AccNumber">Account Number</label>
-					<input type="number" name="AccNumber" class="form-control" id="AccNumber">
-				</div>
-				<div class="form-group">
-					<label for="CheckNumber">Check Number</label>
-					<input type="number" name="CheckNumber" class="form-control" id="CheckNumber">
-				</div>
-				<div class="form-group">
-					<label for="SSNumber">Social Security Number</label>
-					<input type="text" name="SSNumber" class="form-control" id="SSNumber">
-				</div>	
-				<div class="form-group">
-					<label for="Amount">Amount</label>
-					<input type="text" name="Amount" class="form-control" id="Amount" value='<?= $price = random_int(1, 50) ?>' readonly>
-				</div>	
-				<div class="form-group">
-					<button type="submit" class="btn btn-primary">Payment</button>
-				</div>			
+				<div class="row">
+					<div class="form-group col-6">
+						<label for="NameOnCheck">Name On Check</label>
+						<input required type="text" name="NameOnCheck" class="form-control" id="NameOnCheck">
+					</div>	
+					<div class="form-group col-6">
+						<label for="RoutingNumber">Routing Numbre</label>
+						<input required type="number" name="RoutingNumber" class="form-control" id="RoutingNumber">
+					</div>
+					<div class="form-group col-6">
+						<label for="AccNumber">Account Number</label>
+						<input required type="number" name="AccNumber" class="form-control" id="AccNumber">
+					</div>
+					<div class="form-group col-6">
+						<label for="CheckNumber">Check Number</label>
+						<input required type="number" name="CheckNumber" class="form-control" id="CheckNumber">
+					</div>
+					<div class="form-group col-6">
+						<label for="SSNumber">Social Security Number</label>
+						<input required type="number" name="SSNumber" class="form-control" id="SSNumber">
+					</div>	
+					<div class="form-group col-6">
+						<label for="Amount">Amount</label>
+						<input required type="text" name="Amount" class="form-control" id="Amount" value='<?= $price = random_int(1, 50) ?>' readonly>
+					</div>	
+					<div class="form-group col-12">
+						<button type="submit" class="btn btn-primary">Payment</button>
+					</div>	
+				</div>		
 			</form>
 	</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
