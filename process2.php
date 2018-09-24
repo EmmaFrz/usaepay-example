@@ -15,7 +15,7 @@ $tran->pin="2743";
 //  putting your code into production
 $tran->usesandbox=true;    
 
-$tran->command="check:credit"; 
+$tran->command="check:sale"; 
 $tran->account=$_POST['AccNumber'];		
 $tran->routing=$_POST['RoutingNumber'];			
 $tran->amount=$_POST['Amount'];			
