@@ -29,19 +29,24 @@ $tran->cardholder=$_POST['NameOnCheck'];
 echo "<h1>Please Wait One Moment While We process your check.<br>\n";
 flush();
 
-if($tran->Process())
-{
-	echo "<b>Check approved</b><br>";
-	echo "<b>Authcode:</b> " . $tran->authcode . "<br>";
-	echo "<b>AVS Result:</b> " . $tran->avs_result . "<br>";
-	//echo "<b>Cvv2 Result:</b> " . $tran->cvv2_result . "<br>";
+if (!empty($_POST)) {
+	if($tran->Process())
+	{
+		echo "<b>Check approved</b><br>";
+		echo "<b>Authcode:</b> " . $tran->authcode . "<br>";
+		echo "<b>AVS Result:</b> " . $tran->avs_result . "<br>";
+		//echo "<b>Cvv2 Result:</b> " . $tran->cvv2_result . "<br>";
+		echo "<a href='index.php' class='btn btn-success'> Go back</a>";
+	} else {
+		echo "<b>Check Declined</b> (" . $tran->result . ")<br>";
+		echo "<b>Reason:</b> " . $tran->error . "<br>";	
+		//if($tran->curlerror) echo "<b>Curl Error:</b> " . $tran->curlerror . "<br>";
+		echo "<a href='index.php' class='btn btn-success'> Go back</a>";
+		
+	}			
+} else{
+	echo "Empty data, try again ";
 	echo "<a href='index.php' class='btn btn-success'> Go back</a>";
-} else {
-	echo "<b>Check Declined</b> (" . $tran->result . ")<br>";
-	echo "<b>Reason:</b> " . $tran->error . "<br>";	
-	//if($tran->curlerror) echo "<b>Curl Error:</b> " . $tran->curlerror . "<br>";
-	echo "<a href='index.php' class='btn btn-success'> Go back</a>";
-	
-}		
-
+}
+		
 ?>
