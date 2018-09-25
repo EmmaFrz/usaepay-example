@@ -453,7 +453,6 @@ class umTransaction {
 		{
 			if($this->{"custom$i"}) $data["UMcustom$i"] = $this->{"custom$i"};
 		}
-
 		// tack on line level detail
 		$c=1;
 		if(!is_array($this->lineitems)) $this->lineitems=array();

@@ -29,7 +29,7 @@ $tran->usesandbox=true;
 
 $tran->command="authonly"; 
 $tran->card=$_POST['CardNumber'];		
-$tran->exp=$_POST['ExpDate'];			
+$tran->exp=date('my',strtotime($_POST['ExpDate']));			
 $tran->amount=$_POST['Amount'];			
 $tran->invoice="1234";   		
 $tran->cardholder=$_POST['CardHolder']; 	
@@ -37,6 +37,7 @@ $tran->street=$_POST['StreetAdress'];
 $tran->zip=$_POST['ZipCode'];			
 $tran->description="Online Order";	
 $tran->cvv2=$_POST['CCV'];				
+
 
 if (!empty($_POST)) {
 	echo "<h1>Please Wait One Moment While We process your card.<br>\n";
